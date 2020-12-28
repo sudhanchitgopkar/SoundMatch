@@ -9,6 +9,8 @@ import java.security.NoSuchAlgorithmException;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.widget.Button;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +18,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
+
+        Button loginButton = (Button) findViewById(R.id.loginButton);
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println("Successful Button Click");
+            }
+        });    }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public static String generateCodeVerifier() {
         String candidates = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~";
